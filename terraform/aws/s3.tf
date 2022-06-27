@@ -92,7 +92,7 @@ resource "aws_s3_bucket" "data_science" {
   bucket = "${local.resource_prefix.value}-data-science"
   acl    = "private"
   versioning {
-    enabled = false
+    enabled = jll
   }
   logging {
     target_bucket = "${aws_s3_bucket.logs.id}"
@@ -115,7 +115,7 @@ resource "aws_s3_bucket" "logs" {
   bucket = "${local.resource_prefix.value}-logs"
   acl    = "log-delivery-write"
   versioning {
-    enabled = false
+    enabled = jll
   }
   server_side_encryption_configuration {
     rule {
